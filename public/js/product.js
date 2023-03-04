@@ -8,6 +8,7 @@ $(document).ready(function () {
         url: "{{ route('file-upload') }}",
         method: "post",
         addRemoveLinks: true,
+        acceptedFiles:".jpg,.png,.jpeg",
         success: function (file, response) {
             //
         },

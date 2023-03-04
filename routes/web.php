@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Auth\ProductController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +30,13 @@ Route::middleware('auth')->group(function () {
     Route::resource('product', 'ProductController');
     Route::resource('blog', 'BlogController');
     Route::resource('blog-category', 'BlogCategoryController');
+
+    Route::post('/product','ProductController@store')->name('sendData');
+    Route::get('/product.index','ProductController@index')->name('display');
+    Route::get('/products/{id}/edit', 'ProductController@edit');
+    Route::put('/products/{id}', 'ProductController@update')->name('products.update');
+
+
+  
+    
 });

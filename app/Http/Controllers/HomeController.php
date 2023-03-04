@@ -21,8 +21,12 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
+        $image = $request->file('file');
+
+        $imageName = time() . '.' . $image->extension();
+        $image->move(public_path('images'), $imageName);
         return view('home');
     }
 }
